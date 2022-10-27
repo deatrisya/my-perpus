@@ -4,9 +4,9 @@
 	<title>Toko Buku</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-	<script src="js/jquery.js"></script>
-	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="bootstrap.css">
+	<script src="jquery.js"></script>
+	<script src="bootstrap.min.js"></script>
 </head>
 <body>
 

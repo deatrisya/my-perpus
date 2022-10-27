@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>Dashboard</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-	<script src="js/jquery.js"></script>
-	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="bootstrap.css">
+	<script src=jquery.js"></script>
+	<script src="bootstrap.min.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="jquery.dataTables.min.css">
 
 </head>
+
 <body>
-	<?php 
+	<?php
 	//tambahkan format buku
-	include ('./formatharga/lib.php');
+	include('lib.php');
 	?>
 
 	<?php
@@ -24,14 +26,14 @@
 	//query
 	$query = "SELECT * FROM buku";
 
-	$result = mysqli_query($conn , $query);
+	$result = mysqli_query($conn, $query);
 
 	?>
 
 	<div class="container bg-info" style="padding-top: 20px; padding-bottom: 20px;">
-		
+
 		<h1>Aplikasi CRUD Perpustakaan</h1>
-	
+
 		<div class="row">
 			<div class="col-sm-4">
 				<h3>Form Tambah Buku</h3>
@@ -52,9 +54,9 @@
 						<label>Harga Buku</label>
 						<input type="text" name="harga_bk" class="form-control">
 					</div>
-					<button type="submit" class="btn btn-info btn-block">Tambah Buku</button>					
+					<button type="submit" class="btn btn-info btn-block">Tambah Buku</button>
 				</form>
-				
+
 			</div>
 			<div class="col-sm-8">
 				<h3>Tabel Daftar Buku</h3>
@@ -69,43 +71,43 @@
 							<th>Aksi</th>
 						</tr>
 					</thead>
-					<tbody> 
-						
-						<?php
-							$no = 1;  
-							while ($row = mysqli_fetch_assoc($result)) {
-						?>
-						<tr>
-							<td><?php echo $no++; ?></td>
-							<td><?php echo $row['judul_buku']; ?></td>
-							<td><?php echo $row['penerbit_buku']; ?></td>
-							<td><?php echo $row['genre_buku']; ?></td>
-							<td><?php echo rupiah ($row['harga_buku']); ?></td>
-							<td>
-								<a href="editform.php?id=<?php echo $row['id_buku'];?>" class="btn btn-success" role="button">Edit</a>
-								<a href="delete.php?id=<?php echo $row['id_buku']?>" class="btn btn-danger" role="button">Delete</a>
-							</td>
-						</tr>
+					<tbody>
 
 						<?php
-							}
-							mysqli_close($conn); 
+						$no = 1;
+						while ($row = mysqli_fetch_assoc($result)) {
+						?>
+							<tr>
+								<td><?php echo $no++; ?></td>
+								<td><?php echo $row['judul_buku']; ?></td>
+								<td><?php echo $row['penerbit_buku']; ?></td>
+								<td><?php echo $row['genre_buku']; ?></td>
+								<td><?php echo rupiah($row['harga_buku']); ?></td>
+								<td>
+									<a href="editform.php?id=<?php echo $row['id_buku']; ?>" class="btn btn-success" role="button">Edit</a>
+									<a href="delete.php?id=<?php echo $row['id_buku'] ?>" class="btn btn-danger" role="button">Delete</a>
+								</td>
+							</tr>
+
+						<?php
+						}
+						mysqli_close($conn);
 						?>
 					</tbody>
 				</table>
 			</div>
-			
+
 		</div>
-		
+
 	</div>
 </body>
 
-	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
-	<script src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
-	<script>
+<script src="jquery-1.12.0.min.js"></script>
+<script src="jquery.dataTables.min.js"></script>
+<script>
 	$(document).ready(function() {
 		$('.dtabel').DataTable();
-	} );
-	</script>
+	});
+</script>
 
-</html> 
+</html>
