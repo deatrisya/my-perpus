@@ -13,7 +13,7 @@ $query = "UPDATE buku SET judul_buku='$judul' , penerbit_buku='$penerbit' , genr
 
 if (mysqli_query($conn, $query)) {
 	# credirect ke page index
-	header("location:home.php");
+	header("location:index.php");
 	
 }
 else{
